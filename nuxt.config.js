@@ -47,6 +47,7 @@ export default {
   */
   env: {
     TEST_VAR: process.env.NICK_VAR,
+    STATIC: process.env.PRIVATE_DOMAIN,
   },
   publicRuntimeConfig: {
   },
