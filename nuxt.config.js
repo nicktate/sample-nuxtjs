@@ -35,6 +35,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    { ssr: false, src: '~plugins/env' }
   ],
   /*
   ** Auto import components
@@ -44,7 +45,13 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
+  env: {
+    TEST_VAR: process.env.NICK_VAR,
+  },
+  publicRuntimeConfig: {
+  },
   buildModules: [
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Nuxt.js modules
@@ -56,7 +63,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    extend (config, ctx) {
+    extend(config, ctx) {
       config.resolve = config.resolve || {}
       config.resolve.symlinks = false
     }
